@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PixelPin-Example</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/PixelPinPlugins/PPIcon/e0738bd7/style.css">
+  <script defer src="https://cdn.rawgit.com/PixelPinPlugins/PPIcon/06ad51fa/svgxuse.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Omniauth PixelPin', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+        <!-- Replace Start -->
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" type="button" data-toggle="dropdown">Login in/Sign Up
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            </ul>
+          </li>
+        </ul>
+        <!-- Replace End -->
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+</body>
+</html>
